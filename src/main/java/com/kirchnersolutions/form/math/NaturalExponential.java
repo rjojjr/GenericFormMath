@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class NaturalExponential {
+public class NaturalExponential implements Equation{
 
     private double a, b, c, d, y, aorg, borg, corg, dorg, yorg, x, tanslope, defint;
     private boolean solution;
@@ -117,7 +117,7 @@ public class NaturalExponential {
      * @param x
      * @return
      */
-    public double getTanSlope(double x) {
+    public double tanSlope(double x) {
         this.tanslope = (Math.exp(this.b * x + this.c)) * this.a * this.b;
         return this.tanslope;
     }
@@ -161,7 +161,7 @@ public class NaturalExponential {
      * @param x
      * @return
      */
-    public double natEval(double x) {
+    public double eval(double x) {
         double temp = this.a * Math.exp(this.b * x + this.c) + this.d;
         return temp;
     }
@@ -172,7 +172,7 @@ public class NaturalExponential {
      * @param x
      * @return
      */
-    public double natIntEval(double x) {
+    public double intEval(double x) {
         double temp = (this.a * (Math.exp(this.b * b + this.c)) + this.d) * b;
         return temp;
     }

@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class CommonLog {
+public class CommonLog implements Equation{
 
     double a, b, c, d, y, aorg, borg, corg, dorg, yorg, x, tanslope, defint;
     boolean solution;
@@ -162,7 +162,7 @@ public class CommonLog {
      * @param x
      * @return
      */
-    public double logEval(double x) {
+    public double eval(double x) {
         double temp = this.a * (Math.log(this.b * x + this.c) / Math.log(10.0)) + this.d;
         return temp;
     }
@@ -173,7 +173,7 @@ public class CommonLog {
      * @param x
      * @return
      */
-    public double logIntEval(double x) {
+    public double intEval(double x) {
         double temp = (this.a * (Math.log(this.b * x + c) / Math.log(10.0))
                 * (this.b * x + this.c) - (this.a * (1.0 / Math.log(10)) - this.d)
                 * (this.b * x)) / this.b;

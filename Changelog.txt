@@ -1,0 +1,4 @@
+
+07/29/2019
+1.0.01a
+	Implemented Equation interface.

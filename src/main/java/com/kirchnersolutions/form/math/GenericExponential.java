@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class GenericExponential {
+public class GenericExponential implements Equation{
 
     private double a, b, c, d, y, aorg, borg, corg, dorg, yorg, x, tanslope, defint;
     private boolean solution;
@@ -118,7 +118,7 @@ public class GenericExponential {
      * @param x
      * @return
      */
-    public double getTanSlope(double x) {
+    public double tanSlope(double x) {
         this.tanslope = (Math.log(this.a) * this.b) * (Math.pow(this.a, this.b * x + this.c));
         return this.tanslope;
     }
@@ -163,7 +163,7 @@ public class GenericExponential {
      * @param x
      * @return
      */
-    public double genEval(double x) {
+    public double eval(double x) {
         double temp = Math.pow(this.a, (this.b * x + this.c)) + this.d;
         return temp;
     }
@@ -174,7 +174,7 @@ public class GenericExponential {
      * @param x
      * @return
      */
-    public double genIntEval(double x) {
+    public double intEval(double x) {
         double temp = (Math.pow(this.a, this.b * x + this.c) + this.d) * x;
         return temp;
     }

@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class CommonExponential {
+public class CommonExponential implements Equation{
 
     double a, b, c, y, aorg, borg, corg, yorg, x, defint, tanslope;
     boolean solution;
@@ -147,7 +147,7 @@ public class CommonExponential {
      * @param x
      * @return
      */
-    public double comEval(double x) {
+    public double eval(double x) {
         double y;
         y = Math.pow(10, this.a * x + this.b) + this.c;
         return y;
@@ -159,7 +159,7 @@ public class CommonExponential {
      * @param x
      * @return
      */
-    public double comIntEval(double x) {
+    public double intEval(double x) {
         double temp = (Math.exp(Math.log(10) * (this.a * x + this.b)) + this.c) * x;
         return temp;
     }

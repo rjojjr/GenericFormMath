@@ -11,7 +11,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class Poly {
+public class Poly  implements Equation{
 
     private double a, b, c, d, y, x1, x2, x3, da, db, dc, ia, ib, ic, id;
     private double daa, das, dba, dbs, dca, dcs, iaa, ias, iba,
@@ -340,6 +340,18 @@ public class Poly {
         return this.real;
     }
 
+    public double getSol(){
+        return x1;
+    }
+
+    public String getSolStr(){
+        if(realSolution()){
+            return "x1 = " + this.x1real + " : x2 = " + x2real + " : x3 = " + x3real;
+        }else{
+            return "x1 = " + this.x1comp + " : x2 = " + x2comp + " : x3 = " + x3real;
+        }
+    }
+
     /**
      * Returns solution x1 as a string if it is real. Returns "false" if the
      * solution is complex.
@@ -522,7 +534,7 @@ public class Poly {
         return this.diff;
     }
 
-    private void tanSlope(double x) {
+    private void calcTanSlope(double x) {
         this.polyDiff();
         this.tanslope = this.da * x * x + this.db * x + this.dc;
     }
@@ -533,7 +545,7 @@ public class Poly {
      * @param x
      * @return
      */
-    public double getTanSlope(double x) {
+    public double tanSlope(double x) {
         this.tanSlope(x);
         return this.tanslope;
     }
@@ -684,7 +696,7 @@ public class Poly {
      * @param b
      * @return
      */
-    public double getDefInt(double a, double b) {
+    public double defInt(double a, double b) {
         this.polyDefInt(a, b);
         return this.defint;
     }
@@ -694,7 +706,7 @@ public class Poly {
      *
      * @return
      */
-    public String getIntStr() {
+    public String getInt() {
         this.polyInt();
         return this.integral;
     }
@@ -1871,7 +1883,7 @@ public class Poly {
      * @param x
      * @return
      */
-    public double polyEval(double x) {
+    public double eval(double x) {
         double y;
         y = this.a * Math.pow(x, 3) + this.b * Math.pow(x, 2) + this.c * x + this.d;
         return y;
@@ -1907,7 +1919,7 @@ public class Poly {
      * @param x
      * @return
      */
-    public double polyIntEval(double x) {
+    public double intEval(double x) {
         this.polyInt();
         double y;
         y = this.ia * Math.pow(x, 4) + this.ib * Math.pow(x, 3)

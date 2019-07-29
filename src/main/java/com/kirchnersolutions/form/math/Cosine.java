@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class Cosine {
+public class Cosine implements Equation{
 
     private double a, b, c, d, y, aorg, borg, corg, dorg, yorg,
             x, xdeg, difa, difb, difc, tanslope, defint;
@@ -133,7 +133,7 @@ public class Cosine {
      * @param x
      * @return
      */
-    public double tanSlopeRad(double x) {
+    public double tanSlope(double x) {
         this.cosineDiff();
         double temp;
         temp = Math.sin(this.difb * x + this.difc);
@@ -173,13 +173,13 @@ public class Cosine {
         return this.cosint;
     }
 
-    private void defInt(double a, double b) {
+    public double defInt(double a, double b) {
         double tempb, tempa, coscoef;
         coscoef = (180 * this.a) / (this.b * PI);
         tempb = coscoef * Math.sin(this.b * b + this.c) + this.d * b;
         tempa = coscoef * Math.sin(this.b * a + this.c) + this.d * a;
         this.defint = tempb - tempa;
-
+        return defint;
     }
 
     /**
@@ -189,7 +189,7 @@ public class Cosine {
      * @param b
      * @return
      */
-    public double getDefIntRad(double a, double b) {
+    public double getDefInt(double a, double b) {
         this.defInt(a, b);
         return this.defint;
     }
@@ -214,7 +214,7 @@ public class Cosine {
      * @param x
      * @return
      */
-    public double cosineEvalRad(double x) {
+    public double eval(double x) {
         double temp = this.a * Math.cos(this.b * x + this.c) + this.d;
         return temp;
     }
@@ -237,7 +237,7 @@ public class Cosine {
      * @param x
      * @return
      */
-    public double cosineIntEvalRad(double x) {
+    public double intEval(double x) {
         double temp, coscoef = (180 * this.a) / (this.b * PI);
         temp = coscoef * Math.sin(this.b * x + this.c) + this.d * x;
         return temp;

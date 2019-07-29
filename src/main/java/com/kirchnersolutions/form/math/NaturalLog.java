@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class NaturalLog {
+public class NaturalLog implements Equation{
 
     double a, b, c, d, y, aorg, borg, corg, dorg, yorg, x, tanslope, defint;
     boolean solution;
@@ -19,11 +19,11 @@ public class NaturalLog {
     /**
      * Declares a natural logarithmic equation.
      *
-     * @param a1
-     * @param b1
-     * @param c1
-     * @param d1
-     * @param y1
+     * @param a
+     * @param b
+     * @param c
+     * @param d
+     * @param y
      */
     public NaturalLog(double a, double b, double c, double d, double y) {
         this.a = a;
@@ -156,7 +156,7 @@ public class NaturalLog {
      * @param x
      * @return
      */
-    public double lnEval(double x) {
+    public double eval(double x) {
         double temp = this.a * Math.log(this.b * x + this.c) + this.d;
         return temp;
     }
@@ -167,7 +167,7 @@ public class NaturalLog {
      * @param x
      * @return
      */
-    public double lnIntEval(double x) {
+    public double intEval(double x) {
         double temp = (this.a * Math.log(this.b * x + c) + this.d) * x;
         return temp;
     }

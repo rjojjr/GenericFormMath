@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class Sine {
+public class Sine implements Equation{
 
     private double a, b, c, d, y, x, xdeg, difa, difb, difc, tanslope, defint,
             aorg, borg, corg, dorg, yorg;
@@ -97,7 +97,7 @@ public class Sine {
      *
      * @return
      */
-    public double getSolRad() {
+    public double getSol() {
         this.sineSolve();
         return this.x;
     }
@@ -107,7 +107,7 @@ public class Sine {
      *
      * @return
      */
-    public String getSolRadStr() {
+    public String getSolStr() {
         this.sineSolve();
         return "x = " + this.x;
     }
@@ -157,7 +157,7 @@ public class Sine {
      * @param x
      * @return
      */
-    public double tanSlopeRad(double x) {
+    public double tanSlope(double x) {
         this.sinDiff();
         double temp;
         temp = Math.cos(this.difb * x + this.difc);
@@ -199,13 +199,12 @@ public class Sine {
         return this.sineint;
     }
 
-    private void defInt(double a, double b) {
+    private void calcDefInt(double a, double b) {
         double tempb, tempa, coscoef;
         coscoef = (180 * this.a) / (this.b * PI);
         tempb = -coscoef * Math.cos(this.b * b + this.c) + this.d * b;
         tempa = -coscoef * Math.cos(this.b * a + this.c) + this.d * a;
         this.defint = tempb - tempa;
-
     }
 
     /**
@@ -215,7 +214,7 @@ public class Sine {
      * @param b
      * @return
      */
-    public double getDefIntRad(double a, double b) {
+    public double defInt(double a, double b) {
         this.defInt(a, b);
         return this.defint;
     }
@@ -240,7 +239,7 @@ public class Sine {
      * @param x
      * @return
      */
-    public double sineEvalRad(double x) {
+    public double eval(double x) {
         double temp = this.a * Math.sin(this.b * x + this.c) + this.d;
         return temp;
     }
@@ -263,7 +262,7 @@ public class Sine {
      * @param x
      * @return
      */
-    public double sineIntEvalRad(double x) {
+    public double intEval(double x) {
         double temp, coscoef = (180 * this.a) / (this.b * PI);
         temp = -coscoef * Math.cos(this.b * x + this.c) + this.d * x;
         return temp;

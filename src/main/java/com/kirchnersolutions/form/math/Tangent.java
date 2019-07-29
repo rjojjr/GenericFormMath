@@ -10,7 +10,7 @@ package com.kirchnersolutions.form.math;
  *
  * @author Robert Kirchner Jr.
  */
-public class Tangent {
+public class Tangent implements Equation{
 
     private double a, b, c, d, y, aorg, borg,
             corg, dorg, yorg, x, xdeg, tanslope;
@@ -83,7 +83,7 @@ public class Tangent {
      *
      * @return
      */
-    public double getSolRad() {
+    public double getSol() {
         this.tanSolve();
         return this.x;
     }
@@ -139,7 +139,7 @@ public class Tangent {
      * @param x
      * @return
      */
-    public double tanSlopeRad(double x) {
+    public double tanSlope(double x) {
         double temp1, temp2, temp3;
         temp1 = this.a * this.b;
         temp2 = this.b * x + this.c;
@@ -190,7 +190,7 @@ public class Tangent {
      * @param b
      * @return
      */
-    public double tanDefIntRad(double a, double b) {
+    public double defInt(double a, double b) {
         double fa, fb;
         fb = (this.a * (Math.log(1.0 / Math.pow(Math.cos(this.b * b + this.c), 2)))
                 + this.d * (2 * this.b * b - PI)) / (2 * this.b);
@@ -223,7 +223,7 @@ public class Tangent {
      * @param x
      * @return
      */
-    public double tanEvalRad(double x) {
+    public double eval(double x) {
         double temp;
         temp = this.a * Math.tan(this.b * x + this.c) + this.d;
         return temp;
@@ -248,7 +248,7 @@ public class Tangent {
      * @param x
      * @return
      */
-    public double tanIntEvalRad(double x) {
+    public double intEval(double x) {
         double temp;
         temp = (this.a * (Math.log(1.0 / Math.pow(Math.cos(this.b
                 * x + this.c), 2))));
